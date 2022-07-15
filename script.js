@@ -2,20 +2,24 @@ var typingTextInnerCtr = document.querySelector(".typing-text-inner-ctr");
 var typingTextCtr = document.querySelector(".typing-text-ctr");
 var typingTextWord = document.querySelectorAll(".typing-text-word");
 var lastWord = document.querySelectorAll(".last-word");
-var input = document.querySelector("input");
+var input = document.querySelector(".input-box");
 var counterClockTimer = document.querySelector(".counter-clock-timer");
 var testResultsCtr = document.querySelector(".test-results-ctr");
 var testScore = document.querySelector(".test-score");
+var timerTime = document.querySelector(".timer-time");
+var accuracy = document.querySelector(".accuracy");
+var rightWordTotal = document.querySelector(".right-words");
+var wrongWordTotal = document.querySelector(".wrong-words");
 
 // Global Variables
 var i = 0;
 var j = 0;
-var decreaseMarginTop = 4;
+var decreaseMarginTop = 5.5;
 var rightWord = 0;
 var wrongWord = 0;
 
 // Input field on focus
-input.focus();
+// input.focus();
 
 // Assigning input value to a single space
 input.value = " ";
@@ -32,6 +36,9 @@ function counterClockTimerFunction() {
     if (minutes === 0 && seconds === 0) {
       clearInterval(myInterval);
       input.disabled = true;
+      accuracy.textContent = typingAccuracy(rightWord, wrongWord) + "%";
+      rightWordTotal.textContent = rightWord;
+      wrongWordTotal.textContent = wrongWord;
       testScore.textContent = `${rightWord} WPM`;
       testResultsCtr.style.display = "block";
       return;
@@ -54,7 +61,7 @@ input.addEventListener("keydown", (e) => {
     // Chekcing if the currect highlighted world is equals to the last word of the line. if it is the last one hide the current line
     if (typingTextWord[i].textContent === lastWord[j].textContent) {
       typingTextInnerCtr.style.marginTop = `-${decreaseMarginTop}rem`;
-      decreaseMarginTop += 3.52;
+      decreaseMarginTop += 4.8;
       j++;
     }
 
@@ -76,3 +83,10 @@ input.addEventListener("keydown", (e) => {
     }
   }
 });
+
+function typingAccuracy(rightWord, wrongWord) {
+  var accuracy = ((rightWord / (rightWord + wrongWord)) * 100)
+    .toString()
+    .slice(0, 5);
+  return accuracy;
+}

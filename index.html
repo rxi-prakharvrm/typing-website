@@ -6,8 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Typing Website</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,300&family=Poppins:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/60779b5bf6.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
+    <!-- Background designing elements -->
+
+    <div class="element-1"></div>
+    <div class="element-2"></div>
+    <div class="element-3"></div>
+    <div class="element-4"></div>
+
+    <!-- End  -->
     <section class="main-ctr">
       <div class="typing-text-ctr">
         <div class="typing-text-inner-ctr">
@@ -396,20 +414,57 @@
           <span class="typing-text-word">off</span>
           <span class="typing-text-word">me</span>
           <span class="typing-text-word last-word">could</span>
-          <span class="typing-text-word">far</span>
-          <span class="typing-text-word">own</span>
-          <span class="typing-text-word">even</span>
-          <span class="typing-text-word">keep</span>
-          <span class="typing-text-word">wh</span>
         </div>
       </div>
-      <div class="counter-clock-timer">01:00</div>
-      <input type="text" />
+      <div class="timer">
+        <p class="counter-clock-timer">01:00</p>
+        <!-- <select class="timer-time">
+          <option value="1" selected>1 Min</option>
+          <option value="2">2 Min</option>
+          <option value="5">3 Min</option>
+          <option value="10">4 Min</option>
+          <option value="15">5 Min</option>
+        </select> -->
+      </div>
+      <div class="input-ctr">
+        <input class="input-box" type="text" />
+        <button class="refresh-btn" onclick="window.location.reload();">
+          <i class="fa fa-refresh"></i>
+        </button>
+      </div>
 
       <!-- Test Results -->
       <div class="test-results-ctr">
-        <h1 class="test-results-header">Your Score is:</h1>
-        <p class="test-score">70</p>
+        <table cellspacing="0" width="100%">
+          <tr>
+            <td>
+              <div class="accuracy-ctr">
+                <div class="accuracy-header">Accuracy:</div>
+                <p class="accuracy">96%</p>
+              </div>
+            </td>
+            <td rowspan="3">
+              <h1 class="test-results-header">Your Typing Speed is:</h1>
+              <p class="test-score">70 WPM</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="right-words-ctr">
+                <div class="right-words-header">Correct Words:</div>
+                <p class="right-words">81</p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="wrong-words-ctr">
+                <div class="wrong-words-header">Wrong Words:</div>
+                <p class="wrong-words">2</p>
+              </div>
+            </td>
+          </tr>
+        </table>
       </div>
     </section>
     <script src="script.js"></script>
